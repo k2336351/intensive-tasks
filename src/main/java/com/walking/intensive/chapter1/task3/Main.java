@@ -14,25 +14,14 @@ public class Main {
     }
 
     static boolean isLeap(int year) {
-        boolean isLeap;
-
-        int remainderOfDivisionOnFour = year % 4;
-        int remainderOfDivisionOnOneHundred = year % 100;
-
-        // Если год не кратен 4, то он точно невисокосный
-        if (remainderOfDivisionOnFour != 0) {
-            isLeap = false;
-        } else {
-            // Если год кратен 4, но не кратен 100, он високосный
-            if (remainderOfDivisionOnOneHundred != 0) {
-                isLeap = true;
-            } else {
-                // Если результат деления года на 100 кратен 4, то год високосный,
-                // а если не кратен - невисокосный
-                isLeap = (year / 100) % 4 == 0;
-            }
+        if (year % 4 != 0) { // Если год не кратен 4, то он точно невисокосный
+            return false;
         }
 
-        return isLeap;
+        if (year % 100 != 0) { // Если год кратен 4, но не кратен 100, он високосный
+            return true;
+        }
+
+        return (year / 100) % 4 == 0; // Если год кратен четырём и ста, а результат деления года на 100 не кратен 4, то год невисокосный
     }
 }
