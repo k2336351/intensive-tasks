@@ -9,30 +9,40 @@ public class Task9 {
     }
 
     static String getPascalTriangle(int n) {
-        String result = String.format("%s", "");
+        StringBuilder result;
+        result = new StringBuilder();
+
         int maxRowLength = getRow(n).length();
 
         for (int i = 0; i < n; i++) {
             String row = getRow(i);
             int spacesQuantity = (maxRowLength - row.length()) / 2;
-            String spaces = String.format("%" + spacesQuantity + "s", " ");
 
-            result = result.concat(spaces).concat(row).concat("\n");
+            for (int j = 0; j < spacesQuantity; j++) {
+                result.append(" ");
+            }
+
+            result.append(row)
+                    .append("\n");
         }
-        return result;
+
+        return result.toString();
     }
 
     static String getRow(int rowIndex) {
         long element = 1L; // element(0,0) = 0! / (0! * (0 - 0)!)
-        String rowResult = String.format("%d%s", element, " ");
+
+        StringBuilder rowResultBuilder;
+        rowResultBuilder = new StringBuilder(String.valueOf(element));
+        rowResultBuilder.append(" ");
 
         for (int i = 0; i < rowIndex; i++) {
             element = element * (rowIndex - i) / (i + 1);
-            String elementResult = String.format("%d%s", element, " ");
 
-            rowResult = rowResult.concat(elementResult);
+            rowResultBuilder.append(element)
+                    .append(" ");
         }
 
-        return rowResult;
+        return rowResultBuilder.toString();
     }
 }
