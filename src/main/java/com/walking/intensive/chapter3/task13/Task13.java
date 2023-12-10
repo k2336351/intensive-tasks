@@ -22,17 +22,17 @@ public class Task13 {
         }
 
         int countSteps = 1;
-        int watertRemainder = wateringCanVolume;
+        int waterRemainder = wateringCanVolume;
 
         for (int i = 0; i < plants.length - 1; i++) {
-            watertRemainder -= plants[i];
+            waterRemainder -= plants[i];
 
-            if (watertRemainder >= plants[i + 1]) {
+            if (waterRemainder >= plants[i + 1]) {
                 countSteps++;
 
             } else {
                 countSteps += (i + 1) * 2 + 1;
-                watertRemainder = wateringCanVolume;
+                waterRemainder = wateringCanVolume;
             }
         }
 
