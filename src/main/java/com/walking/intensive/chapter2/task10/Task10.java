@@ -18,10 +18,9 @@ public class Task10 {
             return false;
         }
 
-        int i = 0;
         int lastCharIndex = preparedString.length() - 1;
 
-        while (i < preparedString.length()/2) {
+        for (int i = 0; i < preparedString.length()/2; i++) {
             if (preparedString.charAt(i) != preparedString.charAt(lastCharIndex - i)) {
                 return false;
             }
