@@ -32,9 +32,9 @@ public class Task9 {
     static String getRow(int rowIndex) {
         long element = 1L; // element(0,0) = 0! / (0! * (0 - 0)!)
 
-        StringBuilder rowResultBuilder;
-        rowResultBuilder = new StringBuilder(String.valueOf(element));
-        rowResultBuilder.append(" ");
+        StringBuilder rowResultBuilder = new
+                StringBuilder(String.valueOf(element))
+                .append(" ");
 
         for (int i = 0; i < rowIndex; i++) {
             element = element * (rowIndex - i) / (i + 1);
