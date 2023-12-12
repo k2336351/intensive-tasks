@@ -20,7 +20,7 @@ public class Task10 {
 
         int lastCharIndex = preparedString.length() - 1;
 
-        for (int i = 0; i < preparedString.length()/2; i++) {
+        for (int i = 0; i < preparedString.length() / 2; i++) {
             if (preparedString.charAt(i) != preparedString.charAt(lastCharIndex - i)) {
                 return false;
             }
