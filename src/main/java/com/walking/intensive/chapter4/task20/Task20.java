@@ -10,7 +10,7 @@ public class Task20 {
         int[] array = {7, 73, 38, 3, 8, 80, 5, 1, 23};
 
         System.out.println(Arrays.toString(sortByPyramid(array)));
-}
+    }
 
     private static int[] sortByPyramid(int[] array) {
         return getPyramidSortedArray(array, array.length);
@@ -21,38 +21,71 @@ public class Task20 {
             return array;
         }
 
-        if(isSorted(array, arrayLength)){
+        if (isSorted(array, arrayLength)) {
             return array;
         }
 
+        int counter = 0;
+
         while (isNotHeap(array, arrayLength)) {
+            if (counter == 0) {
 
-            for (int i = 0; i < arrayLength / 2; i++) {
-                int firstDescendantIndex = 2 * i + 1;
-                int secondDescendantIndex = 2 * i + 2;
+                for (int i = arrayLength / 2 - 1; i >= 0; i--) {
+                    int firstDescendantIndex = 2 * i + 1;
+                    int secondDescendantIndex = 2 * i + 2;
 
-                if (firstDescendantIndex < arrayLength &&
-                        secondDescendantIndex >= arrayLength &&
-                        array[i] < array[firstDescendantIndex]) {
+                    if (firstDescendantIndex < arrayLength &&
+                            secondDescendantIndex >= arrayLength &&
+                            array[i] < array[firstDescendantIndex]) {
 
-                    swapElements(array, i, firstDescendantIndex);
-                }
+                        swapElements(array, i, firstDescendantIndex);
+                    }
 
-                if (secondDescendantIndex < arrayLength &&
-                        array[i] < Math.max(array[firstDescendantIndex], array[secondDescendantIndex])) {
+                    if (secondDescendantIndex < arrayLength &&
+                            array[i] < Math.max(array[firstDescendantIndex], array[secondDescendantIndex])) {
 
                         if (array[firstDescendantIndex] >= array[secondDescendantIndex]) {
                             swapElements(array, i, firstDescendantIndex);
                         } else {
                             swapElements(array, i, secondDescendantIndex);
                         }
+                    }
                 }
+
+            } else {
+                getHeap(array, arrayLength);
             }
+
+            counter++;
         }
 
         swapElements(array, 0, arrayLength - 1);
 
         return getPyramidSortedArray(array, arrayLength - 1);
+    }
+
+    static void getHeap(int[] array, int arrayLength) {
+        for (int i = 0; i < arrayLength / 2; i++) {
+            int firstDescendantIndex = 2 * i + 1;
+            int secondDescendantIndex = 2 * i + 2;
+
+            if (firstDescendantIndex < arrayLength &&
+                    secondDescendantIndex >= arrayLength &&
+                    array[i] < array[firstDescendantIndex]) {
+
+                swapElements(array, i, firstDescendantIndex);
+            }
+
+            if (secondDescendantIndex < arrayLength &&
+                    array[i] < Math.max(array[firstDescendantIndex], array[secondDescendantIndex])) {
+
+                if (array[firstDescendantIndex] >= array[secondDescendantIndex]) {
+                    swapElements(array, i, firstDescendantIndex);
+                } else {
+                    swapElements(array, i, secondDescendantIndex);
+                }
+            }
+        }
     }
 
     static boolean isNotHeap(int[] array, int arrayLength) {
