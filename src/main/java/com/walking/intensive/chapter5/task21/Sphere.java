@@ -1,10 +1,10 @@
 package com.walking.intensive.chapter5.task21;
 
 public class Sphere {
-    final private int xAxisCoordinate;
-    final private int yAxisCoordinate;
-    final private int zAxisCoordinate;
-    final private int radius;
+    final private double xAxisCoordinate;
+    final private double yAxisCoordinate;
+    final private double zAxisCoordinate;
+    final private double radius;
 
     public Sphere(int xAxisCoordinate, int yAxisCoordinate, int zAxisCoordinate, int radius) {
         this.xAxisCoordinate = xAxisCoordinate;
@@ -13,19 +13,19 @@ public class Sphere {
         this.radius = radius;
     }
 
-    public int getXAxisCoordinate() {
+    public double x() {
         return xAxisCoordinate;
     }
 
-    public int getYAxisCoordinate() {
+    public double y() {
         return yAxisCoordinate;
     }
 
-    public int getZAxisCoordinate() {
+    public double z() {
         return zAxisCoordinate;
     }
 
-    public int getRadius() {
+    public double radius() {
         return radius;
     }
 }
