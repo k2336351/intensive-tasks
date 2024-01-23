@@ -7,13 +7,13 @@ public class Utils {
                 Math.pow(sphere.radius(), 2);
     }
 
-    protected static boolean isPointInsideParallelepiped(Parallelepiped parallelepiped, double x, double y, double z) {
+    protected static boolean isSphereCenterInsideParallelepiped(Parallelepiped parallelepiped, Sphere sphere) {
 
-        return x >= Math.min(parallelepiped.x1(), parallelepiped.x2()) &&
-                x <= Math.max(parallelepiped.x1(), parallelepiped.x2()) &&
-                y >= Math.min(parallelepiped.y1(), parallelepiped.y2()) &&
-                y <= Math.max(parallelepiped.y1(), parallelepiped.y2()) &&
-                z >= Math.min(parallelepiped.z1(), parallelepiped.z2()) &&
-                z <= Math.max(parallelepiped.z1(), parallelepiped.z2());
+        return sphere.x() >= Math.min(parallelepiped.x1(), parallelepiped.x2()) &&
+                sphere.x() <= Math.max(parallelepiped.x1(), parallelepiped.x2()) &&
+                sphere.y() >= Math.min(parallelepiped.y1(), parallelepiped.y2()) &&
+                sphere.y() <= Math.max(parallelepiped.y1(), parallelepiped.y2()) &&
+                sphere.z() >= Math.min(parallelepiped.z1(), parallelepiped.z2()) &&
+                sphere.z() <= Math.max(parallelepiped.z1(), parallelepiped.z2());
     }
 }

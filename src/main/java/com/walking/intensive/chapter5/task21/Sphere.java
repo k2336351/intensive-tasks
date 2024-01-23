@@ -6,7 +6,7 @@ public class Sphere {
     final private double zAxisCoordinate;
     final private double radius;
 
-    public Sphere(int xAxisCoordinate, int yAxisCoordinate, int zAxisCoordinate, int radius) {
+    public Sphere(double xAxisCoordinate, double yAxisCoordinate, double zAxisCoordinate, double radius) {
         this.xAxisCoordinate = xAxisCoordinate;
         this.yAxisCoordinate = yAxisCoordinate;
         this.zAxisCoordinate = zAxisCoordinate;
